@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <title>Create New Product</title>
+  <style type="text/css">
+    span {color: red;font-style: italic;}
+  </style>
 </head>
 <body>
 <div align="center">
@@ -15,19 +18,23 @@
     <table border="0" cellpadding="10">
       <tr>
         <td>Product Name:</td>
-        <td><input type="text" th:field="*{name}" name="Name"/></td>
+        <td><input type="text" th:field="*{name}" name="Name"/>
+          <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Full name error</span></td>
       </tr>
       <tr>
         <td>Brand:</td>
-        <td><input type="text" th:field="*{brand}" name="Brand"/></td>
+        <td><input type="text" th:field="*{brand}" name="Brand"/>
+          <span th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Brand name error</span></td>
       </tr>
       <tr>
         <td>Made In:</td>
-        <td><input type="text" th:field="*{madein}" name="MadeIn"/></td>
+        <td><input type="text" th:field="*{madein}" name="MadeIn"/>
+          <span th:if="${#fields.hasErrors('madein')}" th:errors="*{madein}">Made in name error</span></td>
       </tr>
       <tr>
         <td>Price:</td>
-        <td><input type="text" th:field="*{price}" name="Price"/></td>
+        <td><input type="text" th:field="*{price}" name="Price"/>
+          <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error</span></td>
       </tr>
       <tr>
         <td colspan="2"><button type="submit">Save</button> </td>
